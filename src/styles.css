@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+
+.container img{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  opacity: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+
+}
+.other_container img{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  opacity: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+
+}

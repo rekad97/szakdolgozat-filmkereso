@@ -1,0 +1,44 @@
+<app-navbar-after></app-navbar-after>
+<div class="movie-page" *ngFor="let movie of result">
+  <div class="info">
+    <img [src]="movie.Poster">
+  </div>
+  <div class="info">
+    <div class="details">
+      <div class="title">
+        <label>Title</label>
+        <div>{{movie.Title}}</div>
+      </div>
+      <div class="year">
+        <label>Year</label>
+        <div>{{movie.Year}}</div>
+      </div>
+      <div class="runtime">
+        <label>Runtime</label>
+        <div>{{movie.Runtime}}</div>
+      </div>
+      <div class="genre">
+        <label>Genre</label>
+        <div>{{movie.Genre}}</div>
+      </div>
+      <div class="plot">
+        <label>Plot</label>
+        <div>{{movie.Plot}}</div>
+      </div>
+    </div>
+    <div ngbDropdown class="dropdown">
+      <button type="button" class="btn btn-primary dropdown-toggle" ngbDropdownToggle data-toggle="dropdown">
+        Add to list
+      </button>
+      <div ngbDropdownMenu class="dropdown-menu">
+        <a class="dropdown-item" (click)="addToWatch()">To watch</a>
+        <a class="dropdown-item" (click)="addToContinue()">Continue</a>
+        <a class="dropdown-item" (click)="addToAlreadyWatched()">Already watched</a>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+

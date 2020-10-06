@@ -1,0 +1,4 @@
+{
+  "connectionString": "mongodb://localhost/filmadatbazis",
+  "secret": "movie-database"
+}

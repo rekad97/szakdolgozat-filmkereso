@@ -1,0 +1,105 @@
+body{
+  display: flex;
+}
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 0%;
+  width: 50%;
+  height: 70%;
+  background: #504141;
+  opacity: 0.6;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+
+h1{
+  position: absolute;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  left: 20.96%;
+  right: 21.1%;
+  top: 16.87%;
+  bottom: 80.35%;
+  font-family: "Rouge Script", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 62px;
+  line-height: 85px;
+  text-align: center;
+  color: white;
+}
+
+.lastNameContainer{
+  width: 70%;
+  height: 7%;
+  position: absolute;
+  left: 17.99%;
+  right: 19.83%;
+  top: 42.65%;
+  bottom: 47.76%;
+  border-radius: 15px;
+  font-family: "Javanese Text", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 38px;
+  line-height: 45px;
+  display: flex;
+  color: white;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.userNameContainer{
+  position: absolute;
+  left: 17.99%;
+  right: 19.83%;
+  top: 56.39%;
+  bottom: 34.03%;
+  border-radius: 15px;
+  font-family: "Javanese Text", sans-serif;
+  width: 70%;
+  height: 7%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 38px;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: white;
+}
+label{
+  text-align: center;
+  font-family: "Javanese Text", sans-serif;
+  color: white;
+  font-size: 25px;
+}
+
+.firstNameContainer{
+  position: absolute;
+  justify-content: center;
+  left: 17.99%;
+  right: 19.83%;
+  top: 28.91%;
+  bottom: 61.5%;
+  border-radius: 15px;
+  font-family: "Javanese Text", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 38px;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFCFC;
+  width: 70%;
+  height: 7%;
+}
+
+

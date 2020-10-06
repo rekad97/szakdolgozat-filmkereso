@@ -1,0 +1,44 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+}
+.navbar{
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  background-color: #504141;
+  box-sizing: border-box;
+}
+.navbar a{
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: "Rouge Script", sans-serif;
+}
+.navbar-right{
+  background-color: #504141;
+  float: right;
+}
+.navbar-right button{
+  border-radius: 10px;
+  background: rgba(114, 90, 90, 0.8);
+  text-align: center;
+  border: 1px solid #504141;
+  color: white;
+  font-family: "Rouge Script", sans-serif;
+  font-size: 20px;
+}
+input{
+  font-family: "Rouge Script", sans-serif;
+  font-size: 20px;
+  border-radius: 15px;
+  width: 90%;
+}
+button{
+  border-radius: 15px;
+}

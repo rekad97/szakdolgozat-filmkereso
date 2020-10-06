@@ -1,0 +1,134 @@
+body{
+  display: flex;
+}
+.signup_board{
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 0%;
+  width: 50%;
+  height: 90%;
+  background: #504141;
+  opacity: 0.6;
+  border-radius: 15px;
+}
+
+h1{
+  position: absolute;
+  justify-content: center;
+  left: 20.96%;
+  right: 21.1%;
+  top: 6.87%;
+  bottom: 80.35%;
+  font-family: "Rouge Script", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 72px;
+  line-height: 85px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFAFA;
+}
+#firstName{
+  position: absolute;
+  justify-content: center;
+  left: 17.99%;
+  right: 19.83%;
+  top: 28.91%;
+  bottom: 61.5%;
+  background: #C4C4C4;
+  border-radius: 15px;
+  font-family: "Rouge Script","sans-serif";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 38px;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFCFC;
+  width: 70%;
+  height: 7%;
+}
+#lastName{
+  width: 70%;
+  height: 7%;
+  position: absolute;
+  justify-items: center;
+  left: 17.99%;
+  right: 19.83%;
+  top: 42.65%;
+  bottom: 47.76%;
+  background: #C4C4C4;
+  border-radius: 15px;
+  font-family: "Rouge Script", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 38px;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+#userName{
+  position: absolute;
+  left: 17.99%;
+  right: 19.83%;
+  top: 56.39%;
+  bottom: 34.03%;
+  background: #C4C4C4;
+  border-radius: 15px;
+  font-family: "Rouge Script", sans-serif;
+  width: 70%;
+  height: 7%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 38px;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+#password{
+  position: absolute;
+  left: 17.99%;
+  right: 19.83%;
+  top: 70.13%;
+  bottom: 20.29%;
+  background: #C4C4C4;
+  border-radius: 15px;
+  font-family: "Rouge Script", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 38px;
+  line-height: 45px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 70%;
+  height: 7%;
+}
+#signup{
+  position: absolute;
+  left: 31.16%;
+  right: 37.25%;
+  top: 86.1%;
+  bottom: 4.95%;
+  background: #322323;
+  border: 1px solid #322323;
+  border-radius: 15px;
+  font-family: "Rouge Script", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 38px;
+  line-height: 45px;
+  width: 40%;
+  height: 10%;
+  color: white;
+}
+.search-bar input{
+  font-family: "Rouge Script", sans-serif;
+  border-radius: 15px;
+}

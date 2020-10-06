@@ -1,0 +1,92 @@
+.board-bar{
+  background-color: #504141;
+  opacity: 50%;
+  font-family: "Javanese Text", sans-serif;
+
+}
+
+.board-name{
+  font-family: "Rouge Script", "sans-serif";
+  font-size: 30px;
+  color: white;
+ margin-top: 15px;
+  margin-left: 15px;
+}
+.board{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+  min-height: 0;
+font-family: "Javanese Text", sans-serif;
+
+}
+.board-wrapper{
+  display: flex;
+  flex-grow: 1;
+  overflow-x: auto;
+
+}
+.board-columns{
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.column{
+  display: flex;
+
+  flex-grow: 1;
+  flex-basis: 0;
+  flex-direction: column;
+  background-color: #504141;
+  opacity: 50%;
+  margin: 50px;
+  padding: 25px;
+  border-radius: 10px;
+min-width: 300px;
+
+}
+
+.column:not(:first-child){
+  margin-left: 0;
+}
+
+.column-title{
+  margin-bottom: 15px;
+  background-color: #504141;
+  border-radius: 15px;
+font-family: "Javanese Text", "sans-serif";
+  color: white;
+  font-size: 25px;
+  padding-left: 10px;
+}
+.movie-container{
+  flex-grow: 1;
+}
+.movie{
+  display: flex;
+  padding: 15px 12px;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+  0 8px 10px 1px rgba(78, 120, 67, 0.14),
+  0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+.movie-container.cdk-drop-list-dragging .movie:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

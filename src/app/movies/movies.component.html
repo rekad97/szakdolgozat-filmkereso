@@ -1,0 +1,18 @@
+<app-navbar-after></app-navbar-after>
+<h1>Search for movies!</h1>
+<div class="search-bar">
+  <input type = "text" [(ngModel)]="title" placeholder="Search..." class="search-form"/>
+  <button type="submit" (click)="searchMovie(title)"><i class="fa fa-search" aria-hidden="true"></i></button>
+</div>
+
+<div class = "list">
+  <table>
+    <tr *ngFor="let movie of result"  [routerLink]="['/movie', movie.imdbID]">
+      <td >{{movie.Title}}</td>
+      <td>{{movie.Year}}</td>
+      <td><img [src] = movie.Poster width="50" height="70"></td>
+    </tr>
+  </table>
+</div>
+
+

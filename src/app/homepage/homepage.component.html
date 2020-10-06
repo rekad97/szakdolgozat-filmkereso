@@ -1,0 +1,18 @@
+<div *ngIf="!isLoggedIn">
+  <app-navbar></app-navbar>
+  <div class="text">
+    <h1 class="animate__animated animate__jackInTheBox">Welcome to the MovieBox!</h1>
+    <h2 class="animate__animated animate__jackInTheBox">Please register or login to continue!</h2>
+    <div class="image">
+      <img src="../../assets/images/logo.jpg">
+    </div>
+  </div>
+</div>
+<div *ngIf="isLoggedIn">
+
+  <app-navbar-after></app-navbar-after>
+  <div class="text">
+    <h2 class="animate__animated animate__zoomInDown">Welcome {{user.username}}!</h2>
+    <h3 class="animate__animated animate__zoomInDown">Click <b>Movies</b> tab to find your favourite movies! <i class="fas fa-film"></i></h3>
+  </div>
+</div>

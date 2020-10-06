@@ -1,0 +1,13 @@
+<router-outlet></router-outlet>
+<div *ngIf="!isLoggedIn">
+    <app-navbar></app-navbar>
+</div>
+<div *ngIf="isLoggedIn">
+    <app-navbar-after></app-navbar-after>
+</div>
+<div class="container">
+    <img src="assets/hatter_keves.jpg">
+  </div>
+  <div class="other_container">
+    <img src="assets/hatter_sok.jpg">
+  </div>
