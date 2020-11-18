@@ -1,0 +1,24 @@
+<div *ngIf="!isLoggedIn">
+    <mat-toolbar class="navbar">
+        <div class="logo"><img src="assets/images/logo_kicsi.jpg" width="172.8" height="42.24"></div>
+        <a mat-button (click)="navigate_home()">Home<i class="fas fa-home"></i></a>
+        <div class="navbar-right">
+            <button (click)="navigate_login()">Login</button>
+            <button (click)="navigate_signup()">Sign Up</button>
+        </div>
+    </mat-toolbar>
+</div>
+<div *ngIf="isLoggedIn">
+    <mat-toolbar class="navbar">
+        <div class="logo"><img src="assets/images/logo_kicsi.jpg" href="/home" width="172.8" height="42.24"></div>
+        <a mat-button (click)="navigate_home()">Home<i class="fas fa-home"></i></a>
+        <a mat-button (click)="navigate_movies()">Movies<i class="fas fa-film"></i></a>
+        <a mat-button (click)="navigate_mypage()">My Page<i class="fas fa-list-ul"></i></a>
+        <div class="navbar-right">
+            <button (click)="navigate_logout()">Logout</button>
+            <button (click)="navigate_myprofile()">My Profile</button>
+        </div>
+    </mat-toolbar>
+
+
+</div>

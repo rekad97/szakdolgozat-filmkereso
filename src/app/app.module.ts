@@ -23,7 +23,7 @@ import { SharedModule } from '../app/shared/shared.module'
 import { AppComponent } from './app.component';
 // import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import {NavbarComponent} from './navbar_before/navbar.component';
+import {NavbarComponent} from './navbar/navbar.component';
 import {MypageComponent} from './mypage/mypage.component';
 import {appRoutes} from '../app/routing/routes';
 import {Jwt_interceptor} from './interceptors/jwt_interceptor';
@@ -41,13 +41,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {MatTableModule} from '@angular/material/table';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
-import { MovieCardComponent } from './homepage/movie-card/movie-card.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieCardComponent,
     
 
   ],

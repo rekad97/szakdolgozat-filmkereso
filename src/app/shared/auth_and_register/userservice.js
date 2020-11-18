@@ -7,62 +7,64 @@ const User = db.User;
 const Movie = db.Movie;
 
 module.exports = {
-  auth,
-  getAll,
-  getById,
-  create,
-  update,
-  delete: _delete,
-  createMovieInToWatch
+    auth,
+    getAll,
+    getById,
+    create,
+    update,
+    delete: _delete,
+    createMovieInToWatch
 };
 
-async function auth({ username, password}) {
-  const user = await User.findOne({ username });
-  if(user && bcrypt.compareSync(password, user.hash)) {
-    const token = jwt.sign( { sub: user.id}, config.secret);
-    return {
-      ...user.toJSON(),
-      token
-    };
-  }
+async function auth({ username, password }) {
+    const user = await User.findOne({ username });
+    if (user && bcrypt.compareSync(password, user.hash)) {
+        const token = jwt.sign({ sub: user.id }, config.secret);
+        return {
+            ...user.toJSON(),
+            token
+        };
+    }
 }
 
 async function getAll() {
-  return await User.find();
+    return await User.find();
 }
 
 async function getById(id) {
-  return await User.findById(id);
+    return await User.findById(id);
 }
 
 async function create(userParam) {
-  if(await User.findOne( { username: userParam.username})) {
-    throw 'Username "' + userParam.username + '" is already taken';
-  }
+    if (await User.findOne({ username: userParam.username })) {
 
-  const user = new User(userParam);
+        throw 'Username "' + userParam.username + '" is already taken';
 
-  if(userParam.password) {
-    user.hash = bcrypt.hashSync(userParam.password, 10);
-  }
+    }
 
-  await user.save();
+    const user = new User(userParam);
+
+    if (userParam.password) {
+        user.hash = bcrypt.hashSync(userParam.password, 10);
+    }
+
+    await user.save();
 }
 
 async function update(id, userParam) {
-  const user = await User.findById(id);
+    const user = await User.findById(id);
 
-  if(!user) throw 'User not found';
-  if(user.username !== userParam.username && await User.findOne({ username: userParam.username})) {
-    throw 'Username "' + userParam.username + '" is already taken';
+    if (!user) throw 'User not found';
+    if (user.username !== userParam.username && await User.findOne({ username: userParam.username })) {
+        throw 'Username "' + userParam.username + '" is already taken';
 
-    if(userParam.password) {
-      userParam.hash = bcrypt.hashSync(userParam.password, 10);
+        if (userParam.password) {
+            userParam.hash = bcrypt.hashSync(userParam.password, 10);
+        }
+        Object.assign(user, userParam);
+        await user.save();
+
     }
-    Object.assign(user, userParam);
-    await  user.save();
-
-  }
 
 
 
@@ -70,14 +72,14 @@ async function update(id, userParam) {
 
 
 async function _delete(id) {
-  await User.findByIdAndRemove(id);
+    await User.findByIdAndRemove(id);
 }
 
 async function createMovieInToWatch(user_id, movie) {
     const user = await User.findById(user_id);
-   user.toWatch = movie;
-  Object.assign(user, movie);
-   await user.save();
-   console.log(user);
-   console.log(movie);
+    user.toWatch = movie;
+    Object.assign(user, movie);
+    await user.save();
+    console.log(user);
+    console.log(movie);
 }

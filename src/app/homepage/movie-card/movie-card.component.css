@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-container {
+    width: 200px;
+    height: 300px;
+    margin-right: 50%;
+    background-color: #504141;
+    border-radius: 5px;
+    font-family: "Rouge Script", "sans-serif";
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFFAFA;
+    font-family: "Javanese Text", sans-serif;
+}
+
+img {
+    zoom: 15%;
+    z-index: 2000;
+    text-align: center;
+    opacity: 1;
+    margin-bottom: 12%;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.rate {
+    font-size: 13px;
+}

@@ -12,10 +12,17 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getAll() {
+    console.log('proba getAll');
     return this.http.get<User[]>(`http://localhost:3000/users`);
   }
 
+  getById(id) {
+    console.log('proba getId');
+    return this.http.get(`http://localhost:3000/users/${id}`);
+  }
+
   register(user: User) {
+    console.log('proba register 2');
     return this.http.post(`http://localhost:3000/users/register`, user);
   }
 

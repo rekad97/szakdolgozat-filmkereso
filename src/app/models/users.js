@@ -1,36 +1,24 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const schema = new Schema({
-  username: { type: String, unique: true, required: true},
-  hash: {type: String, required: true},
-  firstName: {type: String, required: true},
-  lastName: { type: String, required: true},
-  createdDate: { type: Date, default: Date.now },
-  toWatch: [
-    {
-      type: Object
-    }
-  ],
-  continue: [
-    {
-      type: Object
-    }
-  ],
-  alreadyWatched: [
-    {
-      type: Object
-    }
-  ]
+const userModel = new Schema({
+    username: { type: String, unique: true, required: true },
+    hash: { type: String, required: true },
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+    createdDate: { type: Date, default: Date.now },
+    toWatchList: [
+        { type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }
+    ]
 });
 
-schema.set('toJSON', {
-  virtuals: true,
-  versionkey: false,
-  transform: function (doc, ret) {
-    delete ret._id;
-    delete ret.hash;
-  }
+userModel.set('toJSON', {
+    virtuals: true,
+    versionkey: false,
+    transform: function(doc, ret) {
+        delete ret._id;
+        delete ret.hash;
+    }
 });
 
-module.exports= mongoose.model('User', schema);
+module.exports = mongoose.model('User', userModel);

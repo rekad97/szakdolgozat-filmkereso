@@ -6,11 +6,12 @@ import {HomepageComponent} from '../homepage/homepage.component';
 import { UserHomePageComponent } from '../user-home-page/user-home-page.component';
 import { RegisterComponent } from 'app/register/register.component';
 import { NotificationComponent } from 'app/notification/notification.component';
-import { NavbarComponent } from 'app/navbar_before/navbar.component';
+import { NavbarComponent } from 'app/navbar/navbar.component';
 import { MypageComponent } from 'app/mypage/mypage.component';
 import { NavbarAfterComponent } from 'app/navbar-after/navbar-after.component';
 import { MyProfileComponent } from 'app/my-profile/my-profile.component';
 import { MovieDetailsComponent } from 'app/movie-details/movie-details.component';
+import { MovieCardComponent } from '../homepage/movie-card/movie-card.component';
 import { MainLayoutComponent } from 'app/main-layout/main-layout.component';
 import { MoviesService } from './movie/movies.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -38,6 +39,8 @@ import { RouterModule } from '@angular/router';
     MoviesComponent,
     UserHomePageComponent,
     MainLayoutComponent,
+    MovieCardComponent
+    
   ],
   imports: [
     CommonModule,
@@ -67,6 +70,7 @@ import { RouterModule } from '@angular/router';
     MyProfileComponent,
     MovieDetailsComponent,
     MoviesComponent,
+    MovieCardComponent,
     UserHomePageComponent,
     MainLayoutComponent,
     FormsModule, 

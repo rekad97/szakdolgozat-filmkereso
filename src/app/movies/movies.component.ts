@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Movie} from '../models/movie';
 import {MoviesService} from '../shared/movie/movies.service';
 import {Router} from '@angular/router';
+import { LatestSearchService } from 'app/shared/movie/latest-search.service';
 
 @Component({
   selector: 'app-movies',
@@ -17,14 +18,15 @@ export class MoviesComponent implements OnInit {
 
   searchMovie(title: string) {
     this.movieService.searchMovieByTitle(title).subscribe((result: any) => {
-      this.result = result.Search;
       console.log(result);
+      this.result = result.Search;
       this.title = title;
       console.log(this.title);
+      this.latestSearchService.latestSearchTitle.push(this.result);
     });
   }
   columns: string[] = ['title', 'year', 'poster', 'details'];
-  constructor(private movieService: MoviesService, private router: Router) { }
+  constructor(private movieService: MoviesService, private router: Router, private latestSearchService: LatestSearchService) { }
 
   ngOnInit(): void {
   }
@@ -40,5 +42,8 @@ export class MoviesComponent implements OnInit {
 details(movie){
     this.router.navigate(['/movie', movie.imdbID]);
 }
+navigate() {
+  this.router.navigate(['/card']);
 
+}
 }

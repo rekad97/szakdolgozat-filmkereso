@@ -13,18 +13,15 @@ import { AuthService } from 'app/shared/auth_and_register/auth.service';
 export class HomepageComponent implements OnInit {
 
   isLoggedIn: boolean;
+  mainPageMovies: Movie[];
   user;
-  constructor(private authService: AuthService) {
-
-   }
-
+  constructor(
+    private authService: AuthService,
+    private movieService: MoviesService
+    ) {}
   ngOnInit(): void {
-    if(this.authService.currentUser === null) {
-      this.isLoggedIn = false;
-    }else {
-      this.isLoggedIn = true;
-    }
-    this.user = this.authService.currentUserValue;
+    this.mainPageMovies = this.movieService.mainPageMovies;
+    console.log(this.mainPageMovies);
   }
 
 

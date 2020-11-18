@@ -4,7 +4,6 @@ import {ActivatedRoute, ActivatedRouteSnapshot, Params, Router} from '@angular/r
 import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../auth_and_register/auth.service';
-import {MovieService} from './movie.service';
 import {UserService} from '../auth_and_register/user.service';
 
 @Injectable({
@@ -20,7 +19,7 @@ result: any;
   id: number;
  resultToSend: any = undefined;
 shared: any;
-  constructor(private authService: AuthService, private userService: UserService, private http: HttpClient, private movieService: MoviesService, private route: ActivatedRoute, private movie: MovieService, private router: Router) {
+  constructor(private authService: AuthService, private userService: UserService, private http: HttpClient, private movieService: MoviesService, private route: ActivatedRoute, private router: Router) {
     console.log(this.result);
 
   }

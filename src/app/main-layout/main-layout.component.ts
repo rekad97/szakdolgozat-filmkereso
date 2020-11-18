@@ -11,9 +11,12 @@ export class MainLayoutComponent implements OnInit {
   constructor(private authService: AuthService) { }
   isLoggedIn = false;
   ngOnInit(): void {
-    if(this.authService.currentUser != null) {
+    if(this.authService.currentUserValue != null) {
       this.isLoggedIn = true;
+    }else if(this.authService.currentUserValue != null) {
+      this.isLoggedIn = false;
     }
+    console.log("user", this.authService.currentUserValue);
   }
 
 }

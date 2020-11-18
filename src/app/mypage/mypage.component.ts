@@ -7,6 +7,8 @@ import {MoviesService} from '../shared/movie/movies.service';
 import {MovieDetailsComponent} from '../movie-details/movie-details.component';
 import {MovieDetailsService} from '../shared/movie/movie-details.service';
 import {AuthService} from '../shared/auth_and_register/auth.service';
+import { UserService } from 'app/shared/auth_and_register/user.service';
+import { User } from 'app/models/user';
 
 
 @Component({
@@ -17,10 +19,16 @@ import {AuthService} from '../shared/auth_and_register/auth.service';
 export class MypageComponent implements OnInit {
 result;
 addToWatch;
-toWatch = JSON.parse(localStorage.getItem('toWatch'));
+currentUser: User;
+toWatch =  this.authService.currentUserValue.toWatchList;
 continue = JSON.parse(localStorage.getItem('continue'));
-  alreadyWatched = JSON.parse(localStorage.getItem('alreadyWatched'));
-  constructor(private router: Router, private authService: AuthService, private movieService: MoviesService, private route: ActivatedRoute, private movieDetailsService: MovieDetailsService) {
+  alreadyWatched =  this.authService.currentUserValue.alreadyWatched;
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private movieDetailsService: MovieDetailsService) {
   }
 
 
@@ -31,7 +39,8 @@ continue = JSON.parse(localStorage.getItem('continue'));
   ]);
 
   ngOnInit(): void {
-
+    console.log("user", this.authService.currentUserValue);
+    this.userService.getById(this.authService.currentUserValue);
   }
 
   drop(event: CdkDragDrop<string[]>) {
