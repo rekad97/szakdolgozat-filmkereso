@@ -7,7 +7,7 @@ export class User {
   firstName: string;
   lastName: string;
   token: string;
-  toWatchList: any;
-  continue: any;
-  alreadyWatched: any;
+  toWatchList: [];
+  continue: [];
+  alreadyWatched: [];
 }

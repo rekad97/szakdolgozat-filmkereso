@@ -31,6 +31,8 @@ button {
     border: none;
     background-color: #322323;
     color: #FFFAFA;
+    outline: none;
+    cursor: pointer;
 }
 
 .save-to-main-page-btn {

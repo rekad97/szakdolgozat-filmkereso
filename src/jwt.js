@@ -11,8 +11,10 @@ function jwt() {
             '/users/auth',
             '/users/register',
             '/users',
-            '/users/:id',
-            '/movies/saveMovie'
+            /\/users/i,
+            /\/movies/i,
+            '/movies/saveMovie',
+            '/movies'
         ]
     });
 }

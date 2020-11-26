@@ -69,5 +69,25 @@ return this.http.get(url).pipe(map((response => {
     return this.http.post(`http://localhost:3000/movies/saveMovie`, movie);
 
   }
+
+  getById(id) {
+    return this.http.get(`http://localhost:3000/movies/${id}`);
+  }
+
+  getAll() {
+    return this.http.get<Movie[]>(`http://localhost:3000/movies`);
+  }
+
+  saveToWatch(movie) {
+    return this.http.post(`http://localhost:3000/movies/saveToWatch`, movie);
+  }
+
+  saveContinue(movie) {
+    return this.http.post(`http://localhost:3000/movies/saveContinue`, movie);
+  }
+
+  saveAlreadyWatched(movie) {
+    return this.http.post(`http://localhost:3000/movies/saveAlreadyWatched`, movie);
+  }
 }
 

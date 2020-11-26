@@ -1,16 +1,17 @@
 <app-navbar-after></app-navbar-after>
-<h1>My Profile</h1>
 <div class="container">
-  <div class="firstNameContainer">
-    <label for="firstName" >First Name:</label>
-    <div id="firstName">{{currentUser.firstName}}</div>
-  </div>
-  <div class="lastNameContainer">
-    <label for="lastName">Last Name:</label>
-    <div id="lastName">{{currentUser.lastName}}</div>
-  </div>
-  <div class="userNameContainer">
-    <label for="username">Username:</label>
-    <div id="username">{{currentUser.username}}</div>
-  </div>
+    <h1>My Profile</h1>
+    <div class="firstNameContainer">
+        <label for="firstName">First Name:</label>
+        <div id="firstName">{{currentUser.firstName}}</div>
+    </div>
+    <div class="lastNameContainer">
+        <label for="lastName">Last Name:</label>
+        <div id="lastName">{{currentUser.lastName}}</div>
+    </div>
+    <div class="userNameContainer">
+        <label for="username">Username:</label>
+        <div id="username">{{currentUser.username}}</div>
+    </div>
+    <button class="suprise-btn" (click)="openDialog()">Suprise movie for today!</button>
 </div>

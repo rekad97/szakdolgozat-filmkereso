@@ -7,7 +7,10 @@ import {AuthService} from '../shared/auth_and_register/auth.service';
 import { Movie } from 'app/models/movie';
 import { first } from 'rxjs/operators';
 
-
+export interface ResultType {
+  id: number;
+  movie: object;
+}
 
 @Component({
   selector: 'app-movie-details',
@@ -21,7 +24,10 @@ export class MovieDetailsComponent implements OnInit {
   alreadyWatched: any[];
   id: string;
   private sub: any;
-  result: any ;
+  result: ResultType = {
+    id: 0,
+    movie: {}
+  };
   $result = new EventEmitter();
   $toWatch = new EventEmitter();
   selectedMovie;
@@ -39,15 +45,17 @@ export class MovieDetailsComponent implements OnInit {
 
   async ngOnInit() {
   await this.movieDetailsService.init();
-  this.result =  this.movieDetailsService.shared.source._value;
-  console.log(this.result);
-  console.log(this.authService.currentUserValue);
+  this.result.movie =  this.movieDetailsService.shared.source._value;
+  // this.result.movie = this.result;
+  this.result.id = this.authService.currentUserValue.id;
+  console.log(this.result.movie);
+  console.log("id", this.result.id);
 
 
 
   }
   getData() {
-    this.result = this.movieDetailsService.sendData();
+    this.result.movie = this.movieDetailsService.sendData();
   }
   getMovieId() {
     let id = 0;
@@ -59,34 +67,22 @@ export class MovieDetailsComponent implements OnInit {
     return id;
   }
   addToWatch() {
-    // this.toWatch = JSON.parse(localStorage.getItem('toWatch'));
-    // this.toWatch.push(this.result[0].Title);
-    // localStorage.setItem('toWatch', JSON.stringify(this.toWatch));
-    // this.router.navigate(['mypage']);
-    console.log('user', this.authService.currentUserValue.id);
-
-
+    this.movieService.saveToWatch(this.result).subscribe(data => console.log("saveTowatchService", data ));
   }
+
 addToContinue(){
-  this.continue = JSON.parse(localStorage.getItem('continue'));
-  this.continue.push(this.result[0].Title);
-  localStorage.setItem('continue', JSON.stringify(this.continue));
-  this.router.navigate(['mypage']);
-
-
-
+  this.movieService.saveContinue(this.result).subscribe(data => console.log("saveTowatchService", data ));
 }
-addToAlreadyWatched(){
-  this.alreadyWatched = JSON.parse(localStorage.getItem('alreadyWatched'));
-  this.alreadyWatched.push(this.result[0].Title);
-  localStorage.setItem('alreadyWatched', JSON.stringify(this.alreadyWatched));
-  this.router.navigate(['mypage']);
+
+addToAlreadyWatched() {
+  this.movieService.saveAlreadyWatched(this.result).subscribe(data => console.log("saveTowatchService", data ));
+
 }
 
 saveToMainPage() {
 // this.movieService.addMainPageMovie(this.result);
 // console.log(this.movieService.mainPageMovies);
   console.log('itt van');
-  this.movieService.save(this.result).pipe(first()).subscribe(data => console.log("data", data));
+  // this.movieService.save(this.result).pipe(first()).subscribe(data => console.log("data", data));
 }
 }

@@ -8,7 +8,7 @@ router.post('/register', register);
 router.post('/towatch', saveToWatch);
 router.get('/', getAll);
 router.get('/current', getCurrent);
-router.get('/:id', verifyToken, getById);
+router.get('/:id', getById);
 router.put('/:id', update);
 router.delete('/:id', _delete);
 
@@ -43,7 +43,10 @@ function getCurrent(req, res, next) {
 
 function getById(req, res, next) {
     userService.getById(req.params.id)
-        .then(user => user ? res.json(user) : res.sendStatus(404))
+        .then(user => {
+            user ? res.json(user) : res.sendStatus(404);
+            console.log("Usern in ID", user);
+        })
         .catch(err => {
             console.log('getByid error', err);
             next(err)
@@ -83,4 +86,5 @@ function verifyToken(req, res, next) {
         //   next();
         // });
     jwt.verify(token);
+    next();
 }

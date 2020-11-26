@@ -24,7 +24,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTableModule } from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
+import {MatMenuModule} from '@angular/material/menu';
+import { QrCodeModalComponent } from '../my-profile/qr-code-modal/qr-code-modal.component';
 
 @NgModule({
   declarations: [HomepageComponent,
@@ -39,7 +42,8 @@ import { RouterModule } from '@angular/router';
     MoviesComponent,
     UserHomePageComponent,
     MainLayoutComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    QrCodeModalComponent
     
   ],
   imports: [
@@ -56,8 +60,9 @@ import { RouterModule } from '@angular/router';
     MatListModule,
     MatCardModule,
     DragDropModule,
-   
+    MatMenuModule,
     MatTableModule,
+    MatDialogModule
   ],
   exports: [
     HomepageComponent,
@@ -73,6 +78,7 @@ import { RouterModule } from '@angular/router';
     MovieCardComponent,
     UserHomePageComponent,
     MainLayoutComponent,
+    QrCodeModalComponent,
     FormsModule, 
     ReactiveFormsModule,
     MatTabsModule,
@@ -84,12 +90,14 @@ import { RouterModule } from '@angular/router';
     MatListModule,
     MatCardModule,
     DragDropModule,
-   
+    MatMenuModule,
     MatTableModule,
+    MatDialogModule
   ],
   providers: [
     MoviesService,
     MovieDetailsService
-  ]
+  ],
+  entryComponents: [QrCodeModalComponent]
 })
 export class SharedModule { }

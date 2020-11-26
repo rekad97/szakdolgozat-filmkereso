@@ -9,6 +9,12 @@ const userModel = new Schema({
     createdDate: { type: Date, default: Date.now },
     toWatchList: [
         { type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }
+    ],
+    continue: [
+        { type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }
+    ],
+    alreadyWatched: [
+        { type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }
     ]
 });
 

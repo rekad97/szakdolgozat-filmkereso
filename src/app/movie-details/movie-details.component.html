@@ -1,43 +1,38 @@
 <app-navbar-after></app-navbar-after>
-<div class="movie-page" *ngFor="let movie of result">
+<div class="movie-page">
     <div class="info">
-        <img [src]="movie.Poster">
+        <img [src]="result.movie[0].Poster">
     </div>
     <div class="info">
         <div class="details">
             <div class="title">
                 <label>Title</label>
-                <div>{{movie.Title}}</div>
+                <div>{{result.movie[0].Title}}</div>
             </div>
             <div class="year">
                 <label>Year</label>
-                <div>{{movie.Year}}</div>
+                <div>{{result.movie[0].Year}}</div>
             </div>
             <div class="runtime">
                 <label>Runtime</label>
-                <div>{{movie.Runtime}}</div>
+                <div>{{result.movie[0].Runtime}}</div>
             </div>
             <div class="genre">
                 <label>Genre</label>
-                <div>{{movie.Genre}}</div>
+                <div>{{result.movie[0].Genre}}</div>
             </div>
             <div class="plot">
                 <label>Plot</label>
-                <div>{{movie.Plot}}</div>
-            </div>
-        </div>
-        <button (click)="addToWatch()">user</button>
-        <div ngbDropdown class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" ngbDropdownToggle data-toggle="dropdown">
-        Add to list
-      </button>
-            <div ngbDropdownMenu class="dropdown-menu">
-                <a class="dropdown-item" (click)="addToWatch()">To watch</a>
-                <a class="dropdown-item" (click)="addToContinue()">Continue</a>
-                <a class="dropdown-item" (click)="addToAlreadyWatched()">Already watched</a>
+                <div>{{result.movie[0].Plot}}</div>
             </div>
         </div>
     </div>
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="addToWatch()">To watch</button>
+        <button mat-menu-item (click)="addToContinue()">Continue</button>
+        <button mat-menu-item (click)="addToAlreadyWatched()">Already watched</button>
+    </mat-menu>
     <button class="save-to-main-page-btn" (click)="saveToMainPage()">
     Save to main page
   </button>
