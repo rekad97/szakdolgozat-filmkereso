@@ -22,8 +22,12 @@ currentUser: User;
   }
 
   openDialog() {
-    this.dialog.open(QrCodeModalComponent, {
-      width: '500px'
+    const dialogRef = this.dialog.open(QrCodeModalComponent, {
+      width: '500px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 }

@@ -1,0 +1,28 @@
+:host {
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-family: "Rouge Script", sans-serif;
+    font-size: 35px;
+    color: #ffffff;
+}
+
+::ng-deep .mat-dialog-container {
+    border-radius: 15px;
+    background-color: #504141;
+}
+
+.cancel-btn {
+    background: #322323;
+    border: 1px solid #322323;
+    font-family: "Javanese Text", sans-serif;
+    font-size: 18px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+}

@@ -27,6 +27,9 @@ import { MatTableModule } from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { QRCodeModule } from 'angularx-qrcode';
 import { QrCodeModalComponent } from '../my-profile/qr-code-modal/qr-code-modal.component';
 
 @NgModule({
@@ -62,7 +65,10 @@ import { QrCodeModalComponent } from '../my-profile/qr-code-modal/qr-code-modal.
     DragDropModule,
     MatMenuModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    QRCodeModule
   ],
   exports: [
     HomepageComponent,
@@ -92,7 +98,9 @@ import { QrCodeModalComponent } from '../my-profile/qr-code-modal/qr-code-modal.
     DragDropModule,
     MatMenuModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     MoviesService,

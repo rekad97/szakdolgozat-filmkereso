@@ -1,21 +1,34 @@
 <app-navbar-after></app-navbar-after>
+
 <h1>Search for movies!</h1>
 <div class="search-bar">
-  <input type = "text" [(ngModel)]="title" placeholder="Search..." class="search-form"/>
-  <button type="submit" (click)="searchMovie(title)"><i class="fa fa-search" aria-hidden="true"></i></button>
+    <input type="text" [(ngModel)]="title" placeholder="Search..." class="search-form" />
+    <button type="submit" (click)="searchMovie(title)"><i class="fa fa-search" aria-hidden="true"></i></button>
 </div>
 
-<div class = "list">
-  <table>
-    <tr *ngFor="let movie of result"  [routerLink]="['/movie', movie.imdbID]">
-      <td >{{movie.Title}}</td>
-      <td>{{movie.Year}}</td>
-      <td><img [src] = movie.Poster width="50" height="70"></td>
-    </tr>
-  </table>
+<div class="list" *ngIf="searched===true">
+    <!-- <table>
+      <tr *ngFor="let movie of result"  [routerLink]="['/movie', movie.imdbID]">
+        <td >{{movie.Title}}</td>
+        <td>{{movie.Year}}</td>
+        <td><img [src] = movie.Poster width="50" height="70"></td>
+      </tr>
+    </table> -->
+    <table mat-table [dataSource]="result" class="mat-elevation-z8">
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let movie"> {{movie.Title}} </td>
+        </ng-container>
+        <ng-container matColumnDef="year">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let movie"> {{movie.Year}} </td>
+        </ng-container>
+        <ng-container matColumnDef="poster">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let movie" class="poster"> <img [src]="movie.Poster" width="50" height="70"> </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
 </div>
-<button (click)="navigate()"> 
-  navigate
-</button>
-
-

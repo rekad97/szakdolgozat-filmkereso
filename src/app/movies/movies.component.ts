@@ -15,7 +15,8 @@ export class MoviesComponent implements OnInit {
   title: string;
   result: any = [];
   selectedMovie: Movie;
-
+  displayedColumns: string[] = ['title', 'year', 'poster'];
+  searched: boolean = false;
   searchMovie(title: string) {
     this.movieService.searchMovieByTitle(title).subscribe((result: any) => {
       console.log(result);
@@ -24,8 +25,8 @@ export class MoviesComponent implements OnInit {
       console.log(this.title);
       this.latestSearchService.latestSearchTitle.push(this.result);
     });
+    this.searched = true;
   }
-  columns: string[] = ['title', 'year', 'poster', 'details'];
   constructor(private movieService: MoviesService, private router: Router, private latestSearchService: LatestSearchService) { }
 
   ngOnInit(): void {

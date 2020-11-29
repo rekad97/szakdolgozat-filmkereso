@@ -1,1 +1,7 @@
-<p>qr-code-modal works!</p>
+<h1 mat-dialog-title>What should I watch today?</h1>
+<mat-dialog-content class="mat-typography">
+    <qrcode [qrdata]="qrCodeString" [width]="256" [errorCorrectionLevel]="'H'"></qrcode>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="cancel-btn">Cancel</button>
+</mat-dialog-actions>
