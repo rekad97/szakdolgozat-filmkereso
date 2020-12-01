@@ -1,5 +1,3 @@
-import {Movie} from './movie';
-
 export class User {
   id: number;
   username: string;

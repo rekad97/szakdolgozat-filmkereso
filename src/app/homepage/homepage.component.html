@@ -1,6 +1,8 @@
 <app-navbar></app-navbar>
-<div *ngFor="let item of mainPageMovies; let i = index">
+<!-- <div *ngFor="let item of mainPageMovies; let i = index">
     <app-movie-card [img]="item[0].Poster" [title]="item[0].Title" [year]="item[0].Year" [rate]="item[0].imdbRating"></app-movie-card>
     {{item[0].Title}}
     <span>{{item}}</span>
-</div>
+</div> -->
+
+<button (click)="openDialog()">Add new todo</button>

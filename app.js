@@ -21,6 +21,7 @@ app.use(jwt());
 // app.use(expressJwt({ credentialsRequired: true, secret: config.secret, requestProperty: 'user' }).unless({ path: config.apiUrl }));
 app.use('/users', require('./src/app/shared/auth_and_register/user_controller'), expressJwt({ secret: SECRET }));
 app.use('/movies', require('./src/app/shared/movie/movie_controller'), expressJwt({ secret: SECRET }));
+app.use('/todos', require('./src/app/shared/todo/todo-controller'), expressJwt({ secret: SECRET }));
 app.use(errorHandler);
 
 app.use(function(req, res, next) {

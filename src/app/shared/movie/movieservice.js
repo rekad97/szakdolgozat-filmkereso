@@ -78,9 +78,13 @@ async function saveToWatch(movie) {
         );
 
     }
-
-
 }
+
+// async function deleteToWatch() {
+//     return User.findByIdAndUpdate{
+//         { $delete: { toWatchList: createdMovie._id } }, { new: true, useFindAndModify: false }
+//     }
+// }
 async function saveContinue(movie) {
     if (await Movie.findOne({ imdbID: movie.movie[0].imdbID })) {
         const createdMovie = await Movie.findOne({ imdbID: movie.movie[0].imdbID });

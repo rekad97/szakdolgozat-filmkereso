@@ -31,9 +31,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { QRCodeModule } from 'angularx-qrcode';
 import { QrCodeModalComponent } from '../my-profile/qr-code-modal/qr-code-modal.component';
+import { AddNewTodoModalComponent } from '../homepage/add-new-todo-modal/add-new-todo-modal.component';
 
 @NgModule({
-  declarations: [HomepageComponent,
+  declarations: [
+    HomepageComponent,
     //LoginComponent,
     RegisterComponent,
     NotificationComponent,
@@ -46,7 +48,8 @@ import { QrCodeModalComponent } from '../my-profile/qr-code-modal/qr-code-modal.
     UserHomePageComponent,
     MainLayoutComponent,
     MovieCardComponent,
-    QrCodeModalComponent
+    QrCodeModalComponent,
+    AddNewTodoModalComponent
     
   ],
   imports: [
@@ -85,6 +88,7 @@ import { QrCodeModalComponent } from '../my-profile/qr-code-modal/qr-code-modal.
     UserHomePageComponent,
     MainLayoutComponent,
     QrCodeModalComponent,
+    AddNewTodoModalComponent,
     FormsModule, 
     ReactiveFormsModule,
     MatTabsModule,
@@ -106,6 +110,6 @@ import { QrCodeModalComponent } from '../my-profile/qr-code-modal/qr-code-modal.
     MoviesService,
     MovieDetailsService
   ],
-  entryComponents: [QrCodeModalComponent]
+  entryComponents: [QrCodeModalComponent, AddNewTodoModalComponent]
 })
 export class SharedModule { }
