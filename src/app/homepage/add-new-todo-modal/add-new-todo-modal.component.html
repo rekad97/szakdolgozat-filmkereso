@@ -1,13 +1,13 @@
 <h1 mat-dialog-title>Add new todo</h1>
 <div mat-dialog-content>
     <form [formGroup]="todoForm" class="form">
-        <mat-form-field appearance="outline" formControlName="title">
+        <mat-form-field appearance="outline">
             <mat-label>Title</mat-label>
-            <input matInput>
+            <input matInput formControlName="title">
         </mat-form-field>
-        <mat-form-field appearance="outline" formControlName="desc">
+        <mat-form-field appearance="outline">
             <mat-label>Description</mat-label>
-            <input matInput>
+            <input matInput formControlName="desc">
         </mat-form-field>
     </form>
 </div>

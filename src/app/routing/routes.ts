@@ -7,7 +7,6 @@ import {MoviesComponent} from '../movies/movies.component';
 import {HomepageComponent} from '../homepage/homepage.component';
 import {UserHomePageComponent} from '../user-home-page/user-home-page.component';
 import { MainLayoutComponent } from 'app/main-layout/main-layout.component';
-import { MovieCardComponent } from 'app/homepage/movie-card/movie-card.component';
 export const appRoutes: Routes = [
   {
     path: 'signup', component: RegisterComponent,
@@ -30,9 +29,6 @@ export const appRoutes: Routes = [
   },
   {
     path: 'home_user', component: UserHomePageComponent
-  },
-  {
-    path: 'card', component: MovieCardComponent
   },
   {
     path: '', redirectTo: '/signup', pathMatch: 'full'

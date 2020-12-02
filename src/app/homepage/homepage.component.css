@@ -1,26 +1,27 @@
-.text{
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  bottom: 0%;
-  width: 100%;
-  height: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: "Javanese Text", sans-serif;
- text-align: center;
+.add-btn {
+    background: #322323;
+    border: 1px solid #322323;
+    border-radius: 15px;
+    font-family: "Rouge Script", sans-serif;
+    line-height: 45px;
+    width: 15%;
+    font-size: 25px;
+    color: white;
 }
-.text > h1 {
-  font-size: 48px;
-  font-weight: bold;
-}
-.text > h2 {
-  font-size: 28px;
+
+.todo-card {
+    margin-bottom: 20px;
+    margin-right: 20px;
 }
 
 
-.text > .image > img {
-  width: 150px;
-  height: 150px;
-}
+/* .wrapper {
+    display: inline-block;
+} */
+
+
+/* .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */

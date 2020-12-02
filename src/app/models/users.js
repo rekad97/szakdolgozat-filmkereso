@@ -15,6 +15,10 @@ const userModel = new Schema({
     ],
     alreadyWatched: [
         { type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }
+    ],
+    toDoList: [
+        { type: mongoose.Schema.Types.ObjectId, ref: 'ToDo' }
+
     ]
 });
 

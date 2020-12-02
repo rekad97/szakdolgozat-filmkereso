@@ -13,6 +13,7 @@ function jwt() {
             '/users',
             /\/users/i,
             /\/movies/i,
+            /\/todos/i,
             '/movies/saveMovie',
             '/movies'
         ]

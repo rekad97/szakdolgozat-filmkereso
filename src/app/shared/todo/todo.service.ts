@@ -10,12 +10,13 @@ export class TodoService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    console.log('proba getAll');
     return this.http.get<ToDo[]>(`http://localhost:3000/todos`);
+  }
+  getById(id) {
+    return this.http.get(`http://localhost:3000/todos/${id}`);
   }
 
   create(todo: ToDo) {
-    console.log('proba register 2');
     return this.http.post(`http://localhost:3000/todos/create`, todo);
   }
 

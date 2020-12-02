@@ -11,7 +11,6 @@ import { MypageComponent } from 'app/mypage/mypage.component';
 import { NavbarAfterComponent } from 'app/navbar-after/navbar-after.component';
 import { MyProfileComponent } from 'app/my-profile/my-profile.component';
 import { MovieDetailsComponent } from 'app/movie-details/movie-details.component';
-import { MovieCardComponent } from '../homepage/movie-card/movie-card.component';
 import { MainLayoutComponent } from 'app/main-layout/main-layout.component';
 import { MoviesService } from './movie/movies.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,12 +31,14 @@ import {MatInputModule} from '@angular/material/input';
 import { QRCodeModule } from 'angularx-qrcode';
 import { QrCodeModalComponent } from '../my-profile/qr-code-modal/qr-code-modal.component';
 import { AddNewTodoModalComponent } from '../homepage/add-new-todo-modal/add-new-todo-modal.component';
+import { TodoCardComponent } from '../homepage/todo-card/todo-card.component';
 
 @NgModule({
   declarations: [
     HomepageComponent,
     //LoginComponent,
     RegisterComponent,
+    TodoCardComponent,
     NotificationComponent,
     NavbarComponent,
     MypageComponent,
@@ -47,7 +48,6 @@ import { AddNewTodoModalComponent } from '../homepage/add-new-todo-modal/add-new
     MoviesComponent,
     UserHomePageComponent,
     MainLayoutComponent,
-    MovieCardComponent,
     QrCodeModalComponent,
     AddNewTodoModalComponent
     
@@ -84,7 +84,7 @@ import { AddNewTodoModalComponent } from '../homepage/add-new-todo-modal/add-new
     MyProfileComponent,
     MovieDetailsComponent,
     MoviesComponent,
-    MovieCardComponent,
+    TodoCardComponent,
     UserHomePageComponent,
     MainLayoutComponent,
     QrCodeModalComponent,
