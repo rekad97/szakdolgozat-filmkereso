@@ -33,4 +33,9 @@ export class UserService {
   saveToWatch(movie: any) {
     return this.http.post(`http://localhost:3000/users/towatch`, movie);
   }
+
+  update(id, movie: any) {
+    console.log('update ideér');
+    return this.http.put(`http://localhost:3000/users/${id}`, movie);
+  }
 }

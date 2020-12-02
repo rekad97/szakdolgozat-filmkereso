@@ -90,7 +90,7 @@ async function saveContinue(movie) {
         const createdMovie = await Movie.findOne({ imdbID: movie.movie[0].imdbID });
         console.log("created", createdMovie);
         return User.findByIdAndUpdate(
-            movie.id, { $push: { toWatchList: createdMovie._id } }, { new: true, useFindAndModify: false }
+            movie.id, { $push: { continue: createdMovie._id } }, { new: true, useFindAndModify: false }
         );
 
     } else {
@@ -109,7 +109,7 @@ async function saveAlreadyWatched(movie) {
         const createdMovie = await Movie.findOne({ imdbID: movie.movie[0].imdbID });
         console.log("created", createdMovie);
         return User.findByIdAndUpdate(
-            movie.id, { $push: { toWatchList: createdMovie._id } }, { new: true, useFindAndModify: false }
+            movie.id, { $push: { alreadyWatched: createdMovie._id } }, { new: true, useFindAndModify: false }
         );
 
     } else {

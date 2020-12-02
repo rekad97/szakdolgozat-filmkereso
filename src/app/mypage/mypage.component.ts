@@ -12,6 +12,10 @@ import { User } from 'app/models/user';
 import { map } from 'rxjs/internal/operators/map';
 import { first } from 'rxjs/operators';
 
+export interface MovieObject {
+  id: string,
+  movie: string
+}
 
 @Component({
   selector: 'app-mypage',
@@ -30,8 +34,10 @@ export class MypageComponent implements OnInit {
   alreadyWatchedTmp = [];
   alreadyDataObject: any[] = [];
   currentUser: User;
+  movieObjectToWatch;
   user;
   id;
+  allIn = [];
   // toWatch =  this.authService.currentUserValue.toWatchList;
 
   constructor(
@@ -77,8 +83,13 @@ export class MypageComponent implements OnInit {
     for (let i = 0; i < this.toWatchTmp.length; i++) {
       this.movieService.getById(this.toWatchTmp[i]).pipe(first()).subscribe(
         data => {
-          this.toWatch.push(data);
-          this.fillToWatch();
+          this.movieObjectToWatch = {
+            id: this.toWatchTmp[i], movie: data
+          }
+          this.allIn.push(this.movieObjectToWatch);
+          this.toWatch.push(this.movieObjectToWatch);
+          console.log(this.movieObjectToWatch);
+         this.fillToWatch();
 
         },
         error => {
@@ -93,6 +104,7 @@ export class MypageComponent implements OnInit {
       this.movieService.getById(this.continueTmp[i]).pipe(first()).subscribe(
         data => {
           this.continue.push(data);
+          console.log("continue array", this.continue);
           this.fillContinue();
 
         },
@@ -118,10 +130,10 @@ export class MypageComponent implements OnInit {
   }
   fillToWatch() {
     for (let i = 0; i < this.toWatch.length; i++) {
-      if ((this.toWatchDataObject.includes(this.toWatch[i].Title))) {
-        console.log(true);
+      if ((this.toWatchDataObject.includes(this.toWatch[i].movie.Title))) {
+        console.log(this.toWatch[i].movie.Title);
       } else {
-        this.toWatchDataObject.push(this.toWatch[i].Title);
+        this.toWatchDataObject.push(this.toWatch[i].movie.Title);
       }
 
     }
@@ -157,22 +169,58 @@ export class MypageComponent implements OnInit {
         event.container.data,
         event.previousIndex,
         event.currentIndex);
+        console.log("Previous", event.previousContainer);
       console.log("Event container", event.container);
       console.log("Details", event.container.data, event.previousIndex, event.currentIndex);
       if (event.container.id === 'cdk-drop-list-0') {
-        this.toWatch = JSON.parse(localStorage.getItem('toWatch'));
-        console.log("this towatch", event.container.data[event.previousIndex]);
-        this.toWatch.push(event.container.data[event.previousIndex]);
-        localStorage.setItem('toWatch', JSON.stringify(this.toWatch));
+        console.log("towatchba raktam",  event.previousContainer.id)
+       if(event.previousContainer.id === 'cdk-drop-list-1') {
+        for(let i = 0; i < this.alreadyDataObject.length; i++) {
+
+        }
+       }
+        // console.log("this towatch", event.container.data[event.previousIndex]);
+        // this.toWatch.push(event.container.data[event.previousIndex]);
+        // localStorage.setItem('toWatch', JSON.stringify(this.toWatch));
       }
       if (event.container.id === 'cdk-drop-list-1') {
-        this.toWatch = JSON.parse(localStorage.getItem('toWatch'));
-        console.log("this towatch", event.container.data[event.previousIndex]);
-        this.toWatch.push(event.container.data[event.previousIndex]);
-        localStorage.setItem('toWatch', JSON.stringify(this.toWatch));
+        console.log("continueba raktam", event.previousContainer.id);
+        // this.toWatch = JSON.parse(localStorage.getItem('toWatch'));
+        // console.log("this towatch", event.container.data[event.previousIndex]);
+        // this.toWatch.push(event.container.data[event.previousIndex]);
+        // localStorage.setItem('toWatch', JSON.stringify(this.toWatch));
       }
     }
 
+  }
+
+  save() {
+    console.log(this.board);
+    let toWatchIds = [];
+    for(let i = 0; i < this.board.column.length; i++) {
+      for(let k = 0; k < this.board.column[k].movies.length; k++ ) { 
+        switch (k) {
+          case 0:
+            for(let j = 0; j < this.allIn.length; j++){
+              for(let m = 0; m < this.board.column[0].movies.length; m++){
+                if(this.allIn[j].movie.Title === this.board.column[0].movies[m]){
+                  if(!toWatchIds.find(x => x===this.allIn[j].movie.id)){
+                    toWatchIds.push(this.allIn[j].movie.id);
+                    console.log("ids", toWatchIds);
+                  }
+                }
+              }
+            }
+            break;
+          default:
+            break;
+        }
+      }
+    
+    }
+    this.userService.update(this.authService.currentUserValue.id, toWatchIds).subscribe(res => {
+                console.log(res);
+    })
   }
 
   navigate() {

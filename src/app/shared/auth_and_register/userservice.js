@@ -52,20 +52,22 @@ async function create(userParam) {
 }
 
 async function update(id, userParam) {
-    const user = await User.findById(id);
+    // const user = await User.findById(id);
 
-    if (!user) throw 'User not found';
-    if (user.username !== userParam.username && await User.findOne({ username: userParam.username })) {
-        throw 'Username "' + userParam.username + '" is already taken';
+    // if (!user) throw 'User not found';
+    // if (user.username !== userParam.username && await User.findOne({ username: userParam.username })) {
+    //     throw 'Username "' + userParam.username + '" is already taken';
 
-        if (userParam.password) {
-            userParam.hash = bcrypt.hashSync(userParam.password, 10);
-        }
-        Object.assign(user, userParam);
-        await user.save();
+    //     if (userParam.password) {
+    //         userParam.hash = bcrypt.hashSync(userParam.password, 10);
+    //     }
+    //     Object.assign(user, userParam);
+    //     await user.save();
 
-    }
-
+    // }
+    console.log("itt vagyok", userParam);
+    return User.findByIdAndUpdate(id, { $set: { toWatchList: userParam } }, { new: true, useFindAndModify: false });
+    // return User.updateOne({ id }, { $set: { toWatchList: userParam } }, { new: true, useFindAndModify: false });
 
 
 }

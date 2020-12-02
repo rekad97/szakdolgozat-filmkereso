@@ -55,8 +55,16 @@ function getById(req, res, next) {
 
 function update(req, res, next) {
     userService.update(req.params.id, req.body)
-        .then(() => res.json({}))
-        .catch(err => next(err));
+
+    .then((data) => {
+            console.log("update itt vagyok", data);
+
+            res.json({});
+        })
+        .catch(err => {
+            console.log("itt a hibaaa", err);
+            next(err)
+        });
 }
 
 function _delete(req, res, next) {

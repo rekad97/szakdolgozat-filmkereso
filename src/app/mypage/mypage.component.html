@@ -1,26 +1,22 @@
 <app-navbar-after></app-navbar-after>
 <div class="board">
-  <div class="board-bar">
-    <p class="board-name">My movies</p>
-  </div>
-
-  <div class="board-wrapper">
-    <div class="board-columns" cdkDropListGroup>
-      <div class="column" *ngFor="let column of board.column">
-        <div class="column-title">
-          {{ column.name }}
-        </div>
-        <div class="movie-container"
-             cdkDropList
-             #todoList="cdkDropList"
-             [cdkDropListData]="column.movies"
-             (cdkDropListDropped)="drop($event)">
-          <div class="movie" *ngFor="let item of column.movies" cdkDrag>
-            {{ item }}
-          </div>
-        </div>
-      </div>
+    <div class="board-bar">
+        <p class="board-name">My movies</p>
+        <button (click)="save()">Save</button>
     </div>
-  </div>
-</div>
 
+    <div class="board-wrapper">
+        <div class="board-columns" cdkDropListGroup>
+            <div class="column" *ngFor="let column of board.column">
+                <div class="column-title">
+                    {{ column.name }}
+                </div>
+                <div class="movie-container" cdkDropList #todoList="cdkDropList" [cdkDropListData]="column.movies" (cdkDropListDropped)="drop($event)">
+                    <div class="movie" *ngFor="let item of column.movies" cdkDrag>
+                        {{ item }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
