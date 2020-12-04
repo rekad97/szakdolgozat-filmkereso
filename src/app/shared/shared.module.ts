@@ -23,6 +23,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTableModule } from '@angular/material/table';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import {MatMenuModule} from '@angular/material/menu';
@@ -71,6 +72,7 @@ import { TodoCardComponent } from '../homepage/todo-card/todo-card.component';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
     QRCodeModule
   ],
   exports: [
@@ -90,6 +92,7 @@ import { TodoCardComponent } from '../homepage/todo-card/todo-card.component';
     QrCodeModalComponent,
     AddNewTodoModalComponent,
     FormsModule, 
+    MatSnackBarModule,
     ReactiveFormsModule,
     MatTabsModule,
     FormsModule,

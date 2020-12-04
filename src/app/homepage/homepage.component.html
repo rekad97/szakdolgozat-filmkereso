@@ -1,7 +1,9 @@
 <app-navbar></app-navbar>
-<div class="container">
-    <div class="wrapper" *ngFor="let item of todoDatas">
-        <app-todo-card class="todo-card" [id]="item._id" [title]="item.title" [desc]="item.desc" (listChanged)="listChanged()"></app-todo-card>
+<div class="host-container">
+    <div class="container">
+        <div class="wrapper" *ngFor="let item of todoDatas">
+            <app-todo-card class="todo-card" [id]="item._id" [title]="item.title" [desc]="item.desc"></app-todo-card>
+        </div>
     </div>
     <button class="add-btn" (click)="openDialog()">Add new todo</button>
 </div>

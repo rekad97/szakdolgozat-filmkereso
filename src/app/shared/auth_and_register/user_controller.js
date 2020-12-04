@@ -9,7 +9,10 @@ router.post('/towatch', saveToWatch);
 router.get('/', getAll);
 router.get('/current', getCurrent);
 router.get('/:id', getById);
-router.put('/:id', update);
+router.put('/toWatch/:id', updateToWatch);
+router.put('/continue/:id', updateContinue);
+router.put('/alreadyWatched/:id', updateAlreadyWatched);
+router.put('/toDoList/:id', updateToDoList);
 router.delete('/:id', _delete);
 
 module.exports = router;
@@ -53,11 +56,53 @@ function getById(req, res, next) {
         });
 }
 
-function update(req, res, next) {
-    userService.update(req.params.id, req.body)
+function updateToWatch(req, res, next) {
+    userService.updateToWatch(req.params.id, req.body)
 
     .then((data) => {
-            console.log("update itt vagyok", data);
+            console.log("update towatch itt vagyok", data);
+
+            res.json({});
+        })
+        .catch(err => {
+            console.log("itt a hibaaa", err);
+            next(err)
+        });
+}
+
+function updateContinue(req, res, next) {
+    userService.updateContinue(req.params.id, req.body)
+
+    .then((data) => {
+            console.log("update continue itt vagyok", data);
+
+            res.json({});
+        })
+        .catch(err => {
+            console.log("itt a hibaaa", err);
+            next(err)
+        });
+}
+
+function updateAlreadyWatched(req, res, next) {
+    userService.updateAlreadyWatched(req.params.id, req.body)
+
+    .then((data) => {
+            console.log("update alreadywatched itt vagyok", data);
+
+            res.json({});
+        })
+        .catch(err => {
+            console.log("itt a hibaaa", err);
+            next(err)
+        });
+}
+
+function updateToDoList(req, res, next) {
+    userService.updatetoDoList(req.params.id, req.body)
+
+    .then((data) => {
+            console.log("update todolist itt vagyok", data);
 
             res.json({});
         })

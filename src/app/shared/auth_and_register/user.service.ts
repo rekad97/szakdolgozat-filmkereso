@@ -34,8 +34,20 @@ export class UserService {
     return this.http.post(`http://localhost:3000/users/towatch`, movie);
   }
 
-  update(id, movie: any) {
+  updateToWatch(id, movie: any) {
     console.log('update ideér');
-    return this.http.put(`http://localhost:3000/users/${id}`, movie);
+    return this.http.put(`http://localhost:3000/users/toWatch/${id}`, movie);
+  }
+  updateContinue(id, movie: any) {
+    console.log('update ideér');
+    return this.http.put(`http://localhost:3000/users/continue/${id}`, movie);
+  }
+  updateAlreadyWatched(id, movie: any) {
+    console.log('update ideér');
+    return this.http.put(`http://localhost:3000/users/alreadyWatched/${id}`, movie);
+  }
+  updateToDoList(id, todo: any) {
+    console.log('update ideér');
+    return this.http.put(`http://localhost:3000/users/toDoList/${id}`, todo);
   }
 }

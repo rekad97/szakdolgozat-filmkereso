@@ -13,6 +13,10 @@
                 <label>Year</label>
                 <div>{{result.movie[0].Year}}</div>
             </div>
+            <div class="actors">
+                <label>Actors</label>
+                <div>{{result.movie[0].Actors}}</div>
+            </div>
             <div class="runtime">
                 <label>Runtime</label>
                 <div>{{result.movie[0].Runtime}}</div>
@@ -27,15 +31,11 @@
             </div>
         </div>
     </div>
-    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <button mat-button class="menu-btn" [matMenuTriggerFor]="menu">Menu</button>
     <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="addToWatch()">To watch</button>
         <button mat-menu-item (click)="addToContinue()">Continue</button>
         <button mat-menu-item (click)="addToAlreadyWatched()">Already watched</button>
     </mat-menu>
-    <button class="save-to-main-page-btn" (click)="saveToMainPage()">
-    Save to main page
-  </button>
-
 
 </div>

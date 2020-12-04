@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, Input, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AuthService } from 'app/shared/auth_and_register/auth.service';
 import { UserService } from 'app/shared/auth_and_register/user.service';
 import { TodoService } from 'app/shared/todo/todo.service';
@@ -14,6 +14,9 @@ export class TodoCardComponent implements OnInit {
   @Input() title: string;
   @Input() desc: string;
   @Input() id: string;
+  // @Output () changed = new EventEmitter<any>();
+
+  
   user;
   list;
   constructor(
@@ -23,7 +26,11 @@ export class TodoCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  
+    this.userService.getById(this.authService.currentUserValue.id).pipe(first())
+    .subscribe(data => {
+      this.user = data;
+      console.log(this.user);
+    })
   }
 
   refresh() {
@@ -35,22 +42,28 @@ export class TodoCardComponent implements OnInit {
 }
 
   delete(event){
-    console.log(event);
-    this.userService.getById(this.authService.currentUserValue.id).pipe(first())
-    .subscribe(data => {
-      this.user = data;
-      console.log(this.user);
       for(let i = 0; i < this.user.toDoList.length; i++) {
+        console.log(event);
+        console.log(this.user.toDoList);
+        console.log(this.user.toDoList[i] );
+        console.log(event.id);
         if(this.user.toDoList[i] == event.id) {
-          console.log(this.user.toDoList[i] );
+        
           this.toDoService.delete(this.user.toDoList[i]).pipe(first()).subscribe(res => {
             console.log('eredmeny', this.user.toDoList, res);
             this.user.toDoList.splice(i, 1);
             console.log(this.user.toDoList);
+            this.userService.updateToDoList(this.authService.currentUserValue.id, this.user.toDoList).subscribe(
+              res => console.log(res)
+            );
           })
         }
-      }    
-  });
-  
+      }
+      this.reload();
+  }
+
+  reload() {
+    window.location.reload();
+
   }
 }

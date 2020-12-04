@@ -2,7 +2,7 @@
 <div class="board">
     <div class="board-bar">
         <p class="board-name">My movies</p>
-        <button (click)="save()">Save</button>
+        <button class="save-btn" (click)="save()">Save</button>
     </div>
 
     <div class="board-wrapper">
@@ -12,7 +12,7 @@
                     {{ column.name }}
                 </div>
                 <div class="movie-container" cdkDropList #todoList="cdkDropList" [cdkDropListData]="column.movies" (cdkDropListDropped)="drop($event)">
-                    <div class="movie" *ngFor="let item of column.movies" cdkDrag>
+                    <div (click)="navigateToDetails(item)" class="movie" *ngFor="let item of column.movies" cdkDrag>
                         {{ item }}
                     </div>
                 </div>

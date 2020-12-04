@@ -6,12 +6,16 @@ const db = require('src/app/database/db');
 const User = db.User;
 const Movie = db.Movie;
 
+
 module.exports = {
     auth,
     getAll,
     getById,
     create,
-    update,
+    updateAlreadyWatched,
+    updateContinue,
+    updateToWatch,
+    updateToDoList,
     delete: _delete,
     createMovieInToWatch
 };
@@ -51,25 +55,19 @@ async function create(userParam) {
     await user.save();
 }
 
-async function update(id, userParam) {
-    // const user = await User.findById(id);
-
-    // if (!user) throw 'User not found';
-    // if (user.username !== userParam.username && await User.findOne({ username: userParam.username })) {
-    //     throw 'Username "' + userParam.username + '" is already taken';
-
-    //     if (userParam.password) {
-    //         userParam.hash = bcrypt.hashSync(userParam.password, 10);
-    //     }
-    //     Object.assign(user, userParam);
-    //     await user.save();
-
-    // }
-    console.log("itt vagyok", userParam);
+async function updateToWatch(id, userParam) {
     return User.findByIdAndUpdate(id, { $set: { toWatchList: userParam } }, { new: true, useFindAndModify: false });
-    // return User.updateOne({ id }, { $set: { toWatchList: userParam } }, { new: true, useFindAndModify: false });
+}
 
+async function updateContinue(id, userParam) {
+    return User.findByIdAndUpdate(id, { $set: { continue: userParam } }, { new: true, useFindAndModify: false });
+}
 
+async function updateAlreadyWatched(id, userParam) {
+    return User.findByIdAndUpdate(id, { $set: { alreadyWatched: userParam } }, { new: true, useFindAndModify: false });
+}
+async function updateToDoList(id, userParam) {
+    return User.findByIdAndUpdate(id, { $set: { toDoList: userParam } }, { new: true, useFindAndModify: false });
 }
 
 

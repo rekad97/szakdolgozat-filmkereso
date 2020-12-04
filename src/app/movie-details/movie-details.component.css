@@ -26,13 +26,16 @@ label {
     font-size: 35px;
 }
 
-button {
+.menu-btn {
     border-radius: 10px;
     border: none;
     background-color: #322323;
     color: #FFFAFA;
     outline: none;
     cursor: pointer;
+    float: right;
+    margin-right: 300px;
+    font-family: "Javanese Text", sans-serif;
 }
 
 .save-to-main-page-btn {
@@ -47,4 +50,14 @@ button {
     width: 40%;
     height: 8.5%;
     color: white;
+}
+
+::ng-deep .mat-menu-content {
+    background: #322323;
+    opacity: 0.6;
+}
+
+.mat-menu-item {
+    font-family: "Javanese Text", sans-serif;
+    color: #ffffff;
 }

@@ -66,8 +66,9 @@ fillData() {
     );
   }
 
-  listChanged() {
+  listChanged(event) {
     this.refresh();
+    console.log("event", event);
   }
 
 }
