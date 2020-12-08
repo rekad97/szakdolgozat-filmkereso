@@ -34,10 +34,10 @@ import { TodoCardComponent } from '../homepage/todo-card/todo-card.component';
 @NgModule({
   declarations: [
     // HomepageComponent,
-    RegisterComponent,
+    // RegisterComponent,
     TodoCardComponent,
     NavbarComponent,
-    MypageComponent,
+    // MypageComponent,
     // MyProfileComponent,
     // MovieDetailsComponent,
     // MoviesComponent,
@@ -70,9 +70,9 @@ import { TodoCardComponent } from '../homepage/todo-card/todo-card.component';
   ],
   exports: [
     // HomepageComponent,
-    RegisterComponent,
+    // RegisterComponent,
     NavbarComponent,
-    MypageComponent,
+    // MypageComponent,
     // MyProfileComponent,
     // MovieDetailsComponent,
     // MoviesComponent,

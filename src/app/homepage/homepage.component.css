@@ -29,6 +29,22 @@
     align-items: center;
 }
 
+.text {
+    margin-top: 200px;
+    font-family: "Javanese Text", "sans-serif";
+}
+
+.welcome.text {
+    font-weight: 900;
+    color: #504141;
+    font-size: 35px;
+}
+
+.todo-text {
+    color: #5e4e45;
+    font-size: 28px;
+}
+
 
 /* .container {
     display: flex;

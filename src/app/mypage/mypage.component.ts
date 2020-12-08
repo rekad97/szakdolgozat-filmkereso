@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Board } from '../models/board';
@@ -11,6 +11,7 @@ import { UserService } from 'app/shared/auth_and_register/user.service';
 import { User } from 'app/models/user';
 import { map } from 'rxjs/internal/operators/map';
 import { first } from 'rxjs/operators';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 export interface MovieObject {
   id: string;
@@ -23,6 +24,10 @@ export interface MovieObject {
   styleUrls: ['./mypage.component.css']
 })
 export class MypageComponent implements OnInit {
+
+
+
+
   result;
   toWatch = [];
   toWatchDataObject: any[] = [];
@@ -293,10 +298,10 @@ export class MypageComponent implements OnInit {
       res => {
         this.allIntoNavigate = res;
         for (let i = 0; i < this.allIntoNavigate.length; i++) {
-          console.log("itt van", this.allIntoNavigate[i], item);
+          console.log('itt van', this.allIntoNavigate[i], item);
 
           if (item === this.allIntoNavigate[i].Title) {
-            console.log("itt navigál", this.allIntoNavigate[i].imdbID);
+            console.log('itt navigál', this.allIntoNavigate[i].imdbID);
 
             this.router.navigate(['/movie', this.allIntoNavigate[i].imdbID]);
 
@@ -308,6 +313,64 @@ export class MypageComponent implements OnInit {
   navigate() {
     this.router.navigate(['/login']);
   }
+
+ delete(item) {
+   let deletedId;
+   let toWatchListDeleteTmp = [...this.user.toWatchList];
+   let continueDeleteTmp = [...this.user.continue];
+   let alreadyWatchedDeleteTmp = [...this.user.alreadyWatched];
+   console.log('tmp', toWatchListDeleteTmp);
+   
+   this.movieService.getAll().subscribe(res => {
+    this.allIn = res;
+    console.log(res);
+    for (let i = 0; i < this.allIn.length; i++) {
+      if (this.allIn[i].Title === item) {
+        deletedId = this.allIn[i].id;
+      }
+    }
+
+    for(let i = 0; i < this.user.toWatchList.length; i++) {
+
+      if(deletedId === this.user.toWatchList[i]) {
+        console.log(this.user.toWatchList[i]);
+  
+        toWatchListDeleteTmp.splice(i, 1);
+        console.log('deletedTmp', toWatchListDeleteTmp)
+        this.userService.updateToWatch(this.authService.currentUserValue.id, toWatchListDeleteTmp).subscribe(res =>
+          window.location.reload()
+          );
+      }
+    }
+  
+    for(let i = 0; i < this.user.continue.length; i++) {
+
+      if(deletedId === this.user.continue[i]) {
+  
+        continueDeleteTmp.splice(i, 1);
+        this.userService.updateContinue(this.authService.currentUserValue.id, continueDeleteTmp).subscribe(res =>
+          window.location.reload()
+          );
+      }
+    }
+  
+
+    for(let i = 0; i < this.user.alreadyWatched.length; i++) {
+
+      if(deletedId === this.user.alreadyWatched[i]) {
+        alreadyWatchedDeleteTmp.splice(i, 1);
+        this.userService.updateAlreadyWatched(this.authService.currentUserValue.id, alreadyWatchedDeleteTmp).subscribe(res =>
+          window.location.reload()
+          );
+      }
+    }
+  });
+
+
+
+
+ }
+
 
 }
 

@@ -1,6 +1,15 @@
-<div class="container">
-    <div class="wrapper" *ngFor="let item of todoDatas">
-        <app-todo-card class="todo-card" [id]="item._id" [title]="item.title" [desc]="item.desc"></app-todo-card>
+<div *ngIf="isLoggedIn">
+    <div class="container">
+        <div class="wrapper" *ngFor="let item of todoDatas">
+            <app-todo-card class="todo-card" [id]="item._id" [title]="item.title" [desc]="item.desc"></app-todo-card>
+        </div>
+    </div>
+    <button class="add-btn" (click)="openDialog()">Add new reminder</button>
+</div>
+<div *ngIf="!isLoggedIn">
+    <div class="text">
+        <h2 class="animate__animated animate__zoomInDown welcome-text">Welcome to MovieBox!</h2>
+        <h3 class="animate__animated animate__zoomInDown todo-text">Please login or sign up to continue!
+        </h3>
     </div>
 </div>
-<button class="add-btn" (click)="openDialog()">Add new reminder</button>

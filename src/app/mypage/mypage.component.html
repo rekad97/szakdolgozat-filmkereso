@@ -1,4 +1,3 @@
-<app-navbar></app-navbar>
 <div class="board">
     <div class="board-bar">
         <p class="board-name">My movies</p>
@@ -12,9 +11,14 @@
                     {{ column.name }}
                 </div>
                 <div class="movie-container" cdkDropList #todoList="cdkDropList" [cdkDropListData]="column.movies" (cdkDropListDropped)="drop($event)">
-                    <div (click)="navigateToDetails(item)" class="movie" *ngFor="let item of column.movies" cdkDrag>
-                        {{ item }}
+                    <div class="movie" *ngFor="let item of column.movies" cdkDrag>
+                        <div (click)="navigateToDetails(item)">
+                            {{ item }}
+                        </div>
+                        <button class="close-btn" (click)="delete(item)"><i class="fa fa-close"></i></button>
+
                     </div>
+
                 </div>
             </div>
         </div>

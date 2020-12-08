@@ -31,6 +31,11 @@ export class HomepageComponent implements OnInit {
     ) {}
   ngOnInit(): void {
    this.refresh();
+   if(this.authService.currentUserValue !== undefined) {
+     this.isLoggedIn = true;
+   }else {
+     this.isLoggedIn = false;
+   }
 
   }
 
