@@ -22,6 +22,7 @@ export class HomepageComponent implements OnInit {
   todoIds;
   todoDatas = [];
   user;
+  
   constructor(
     private authService: AuthService,
     private todoService: TodoService,
@@ -57,11 +58,16 @@ fillData() {
 }
   openDialog() {
     const dialogRef = this.dialog.open(AddNewTodoModalComponent, {
-      width: '500px'
+      width: '500px',
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(res => {
-      this.todoDatas.push(res);
+      console.log("itt meghívódik az after subscribe", res);
+      if(res.title !== '' || res.desc !== '') {
+        this.todoDatas.push(res);
+
+      }
     }
     );
   }

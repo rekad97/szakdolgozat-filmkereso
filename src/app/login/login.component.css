@@ -1,97 +1,102 @@
-body{
-  display: flex;
-}
-.login_board{
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  bottom: 0%;
-  width: 40%;
-  height: 70%;
-  background: #504141;
-  opacity: 0.6;
-  border-radius: 15px;
+body {
+    display: flex;
 }
 
-h1{
-  position: absolute;
-  justify-content: center;
-  left: 20.96%;
-  right: 21.1%;
-  top: 46.87%;
-  bottom: 80.35%;
-  font-family: "Rouge Script", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 72px;
-  line-height: 85px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #FFFAFA;
-  z-index: 500;
+.login_board {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 0%;
+    width: 40%;
+    height: 70%;
+    background: #504141;
+    opacity: 0.6;
+    border-radius: 15px;
 }
-#username{
-  width: 70%;
-  height: 7%;
-  position: absolute;
-  justify-items: center;
-  left: 17.99%;
-  right: 19.83%;
-  top: 42.65%;
-  bottom: 47.76%;
-  background: #C4C4C4;
-  border-radius: 15px;
-  font-family: "Rouge Script", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 35px;
-  line-height: 45px;
-  display: flex;
-  align-items: center;
-  text-align: center;
+
+h1 {
+    position: absolute;
+    justify-content: center;
+    left: 20.96%;
+    right: 21.1%;
+    top: 36.87%;
+    bottom: 80.35%;
+    font-family: "Rouge Script", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 85px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFAFA;
+    z-index: 500;
 }
-#password{
-  position: absolute;
-  left: 17.99%;
-  right: 19.83%;
-  top: 56.39%;
-  bottom: 34.03%;
-  background: #C4C4C4;
-  border-radius: 15px;
-  font-family: "Rouge Script", sans-serif;
-  width: 70%;
-  height: 7%;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 32px;
-  line-height: 45px;
-  display: flex;
-  align-items: center;
-  text-align: center;
+
+#username {
+    width: 70%;
+    height: 7%;
+    position: absolute;
+    justify-items: center;
+    left: 17.99%;
+    right: 19.83%;
+    top: 42.65%;
+    bottom: 47.76%;
+    background: #C4C4C4;
+    border-radius: 15px;
+    font-family: "Rouge Script", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
-#login{
-  position: absolute;
-  left: 31.16%;
-  right: 37.25%;
-  top: 76.1%;
-  bottom: 14.95%;
-  background: #322323;
-  border: 1px solid #322323;
-  border-radius: 15px;
-  font-family: "Rouge Script", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 25px;
-  line-height: 25px;
-  width: 40%;
-  height: 8.5%;
-  color: white;
-  opacity: 1;
-  z-index: 1500;
+
+#password {
+    position: absolute;
+    left: 17.99%;
+    right: 19.83%;
+    top: 56.39%;
+    bottom: 34.03%;
+    background: #C4C4C4;
+    border-radius: 15px;
+    font-family: "Rouge Script", sans-serif;
+    width: 70%;
+    height: 7%;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
-.search-bar input{
-  font-family: "Rouge Script", sans-serif;
-  border-radius: 15px;
+
+#login {
+    position: absolute;
+    left: 31.16%;
+    right: 37.25%;
+    top: 76.1%;
+    bottom: 14.95%;
+    background: #322323;
+    border: 1px solid #322323;
+    border-radius: 15px;
+    font-family: "Rouge Script", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 25px;
+    width: 40%;
+    height: 8.5%;
+    color: white;
+    opacity: 1;
+    z-index: 1500;
+}
+
+.search-bar input {
+    font-family: "Rouge Script", sans-serif;
+    border-radius: 15px;
 }

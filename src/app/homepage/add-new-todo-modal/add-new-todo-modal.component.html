@@ -1,17 +1,19 @@
-<h1 mat-dialog-title>Add new todo</h1>
-<div mat-dialog-content>
-    <form [formGroup]="todoForm" class="form">
-        <mat-form-field appearance="outline">
-            <mat-label>Title</mat-label>
-            <input matInput formControlName="title">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Description</mat-label>
-            <input matInput formControlName="desc">
-        </mat-form-field>
-    </form>
-</div>
-<div class="buttons">
-    <button mat-flat-button (click)="create()">Create</button>
-    <button mat-flat-button>Cancel</button>
+<div data-backdrop="static" data-keyboard="false">
+    <h1 mat-dialog-title>Add new reminder</h1>
+    <div mat-dialog-content>
+        <form [formGroup]="todoForm" class="form">
+            <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="desc">
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="buttons">
+        <button class="create-btn" mat-flat-button (click)="create()">Create</button>
+        <button class="cancel-btn" mat-flat-button (click)="cancel()">Cancel</button>
+    </div>
 </div>

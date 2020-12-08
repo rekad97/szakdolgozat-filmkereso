@@ -3,12 +3,9 @@ import { CommonModule } from '@angular/common';
 import {MovieDetailsService} from '../shared/movie/movie-details.service';
 import { MoviesComponent } from '../movies/movies.component';
 import {HomepageComponent} from '../homepage/homepage.component';
-import { UserHomePageComponent } from '../user-home-page/user-home-page.component';
 import { RegisterComponent } from 'app/register/register.component';
-import { NotificationComponent } from 'app/notification/notification.component';
 import { NavbarComponent } from 'app/navbar/navbar.component';
 import { MypageComponent } from 'app/mypage/mypage.component';
-import { NavbarAfterComponent } from 'app/navbar-after/navbar-after.component';
 import { MyProfileComponent } from 'app/my-profile/my-profile.component';
 import { MovieDetailsComponent } from 'app/movie-details/movie-details.component';
 import { MainLayoutComponent } from 'app/main-layout/main-layout.component';
@@ -36,18 +33,14 @@ import { TodoCardComponent } from '../homepage/todo-card/todo-card.component';
 
 @NgModule({
   declarations: [
-    HomepageComponent,
-    //LoginComponent,
+    // HomepageComponent,
     RegisterComponent,
     TodoCardComponent,
-    NotificationComponent,
     NavbarComponent,
     MypageComponent,
-    NavbarAfterComponent,
-    MyProfileComponent,
-    MovieDetailsComponent,
-    MoviesComponent,
-    UserHomePageComponent,
+    // MyProfileComponent,
+    // MovieDetailsComponent,
+    // MoviesComponent,
     MainLayoutComponent,
     QrCodeModalComponent,
     AddNewTodoModalComponent
@@ -76,18 +69,14 @@ import { TodoCardComponent } from '../homepage/todo-card/todo-card.component';
     QRCodeModule
   ],
   exports: [
-    HomepageComponent,
-    //LoginComponent,
+    // HomepageComponent,
     RegisterComponent,
-    NotificationComponent,
     NavbarComponent,
     MypageComponent,
-    NavbarAfterComponent,
-    MyProfileComponent,
-    MovieDetailsComponent,
-    MoviesComponent,
+    // MyProfileComponent,
+    // MovieDetailsComponent,
+    // MoviesComponent,
     TodoCardComponent,
-    UserHomePageComponent,
     MainLayoutComponent,
     QrCodeModalComponent,
     AddNewTodoModalComponent,

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {Validators, FormGroup, FormBuilder} from '@angular/forms';
 import {first} from 'rxjs/operators';
-import {NotifyService} from '../shared/auth_and_register/notify.service';
 import { AuthService} from '../shared/auth_and_register/auth.service';
 
 @Component({
@@ -21,7 +20,6 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
-    private notifyService: NotifyService
   ) {
     if (this.authService.currentUserValue) {
       this.router.navigate(['/home']);
@@ -41,7 +39,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.notifyService.clear();
     if (this.loginForm.invalid) {
       return;
     }
@@ -52,8 +49,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home']);
       },
         error => {
-        this.notifyService.error(error);
-        this.loading = false;
+      console.log(error);
         });
   }
 

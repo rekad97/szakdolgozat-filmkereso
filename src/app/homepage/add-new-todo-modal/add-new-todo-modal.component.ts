@@ -44,19 +44,23 @@ export class AddNewTodoModalComponent implements OnInit {
 
       this.dialogRef.close(this.todoForm.value);
 
-      this.dialogRef.afterClosed().subscribe(res => {
-          this.listChanged.emit(res);
-          this.refresh();
-        });
+      // this.dialogRef.afterClosed().subscribe(res => {
+      //     this.listChanged.emit(res);
+      //     this.refresh();
+      //   });
     } else if (!this.todoForm.valid) {
       this.snackBar.open('Form fields are required!', 'Close');
-      this.dialogRef.close();
     }
 
-}
+ }
+  
 
 refresh() {
   window.location.reload();
+}
+
+cancel() {
+  this.dialogRef.close();
 }
 
 }

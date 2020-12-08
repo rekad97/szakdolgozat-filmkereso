@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import {Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 import { AuthService } from 'app/shared/auth_and_register/auth.service';
 
 @Component({
@@ -10,19 +10,23 @@ import { AuthService } from 'app/shared/auth_and_register/auth.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
 
-  isLoggedIn: boolean;
+  @Input() isLoggedIn: boolean;
+  mySubscription: any;
   constructor(
     private router: Router,
     private authService: AuthService
     ) {}
   ngOnInit(): void {
-    if (this.authService.currentUserValue != null) {
-      this.isLoggedIn = true;
-    } else if (this.authService.currentUserValue != null) {
-      this.isLoggedIn = false;
-    }
+    this.router.routeReuseStrategy.shouldReuseRoute = function() {
+      return false;
+    };
+    this.mySubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.router.navigated = false;
+      }
+    });
   }
   navigate_login() {
     this.router.navigate(['/login']);
@@ -41,11 +45,21 @@ export class NavbarComponent implements OnInit {
   }
  
   navigate_logout() {
+    
     this.authService.logout();
     this.navigate_login();
+    // window.location.reload()
+    console.log("Ő van bent", this.authService.currentUserValue)
   }
   
   navigate_myprofile() {
     this.router.navigate(['/myprofile']);
   }
+
+  ngOnDestroy(): void {
+    if (this.mySubscription) {
+      this.mySubscription.unsubscribe();
+    }
+  }
+
 }

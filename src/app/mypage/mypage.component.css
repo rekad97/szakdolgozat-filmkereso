@@ -2,6 +2,10 @@
     background-color: #504141;
     opacity: 50%;
     font-family: "Javanese Text", sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .board-name {
@@ -91,4 +95,20 @@
 
 .movie-container.cdk-drop-list-dragging .movie:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.save-btn {
+    background: #d6c7bf;
+    border: 5px solid #322323;
+    border-radius: 15px;
+    font-family: "Javanese Text", "sans-serif";
+    font-weight: 900;
+    width: 100px;
+    font-size: 25px;
+    height: 10%;
+    color: #322323;
+    outline: none;
+    padding-top: 5px;
+    cursor: pointer;
+    opacity: 1;
 }

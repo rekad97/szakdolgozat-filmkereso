@@ -26,8 +26,6 @@ this.URL = url;
 return this.http.get(url).pipe(map((response => {
     this.movie = response;
     return response;
-    console.log(response);
-    localStorage.setItem('search', response.toString());
   })));
 
 }
@@ -37,8 +35,6 @@ return this.http.get(url).pipe(map((response => {
     return this.http.get(url).pipe(map((response => {
       this.movie = response;
       return response;
-      console.log(response);
-      localStorage.setItem('search', response.toString());
     })));
 
   }

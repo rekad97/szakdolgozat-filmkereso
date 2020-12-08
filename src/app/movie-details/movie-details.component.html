@@ -1,4 +1,3 @@
-<app-navbar-after></app-navbar-after>
 <div class="movie-page">
     <div class="info">
         <img [src]="result.movie[0].Poster">
@@ -30,12 +29,13 @@
                 <div>{{result.movie[0].Plot}}</div>
             </div>
         </div>
+        <button mat-button class="menu-btn" [matMenuTriggerFor]="menu">Menu</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="addToWatch()">To watch</button>
+            <button mat-menu-item (click)="addToContinue()">Continue</button>
+            <button mat-menu-item (click)="addToAlreadyWatched()">Already watched</button>
+        </mat-menu>
     </div>
-    <button mat-button class="menu-btn" [matMenuTriggerFor]="menu">Menu</button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="addToWatch()">To watch</button>
-        <button mat-menu-item (click)="addToContinue()">Continue</button>
-        <button mat-menu-item (click)="addToAlreadyWatched()">Already watched</button>
-    </mat-menu>
+
 
 </div>

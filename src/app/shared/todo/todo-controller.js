@@ -10,7 +10,6 @@ router.get('/:id', getById);
 module.exports = router;
 
 function create(req, res, next) {
-    console.log('proba todo');
     todoService.create(req.body)
         .then(() => res.json({}))
         .catch(err => next(err));

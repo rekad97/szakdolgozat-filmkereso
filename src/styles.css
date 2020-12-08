@@ -3,7 +3,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: auto;
+    width: 100%;
     height: auto;
     z-index: -1000;
     opacity: 80%;
@@ -17,7 +17,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: auto;
+    width: 100%;
     height: auto;
     z-index: -1000;
     opacity: 80%;
@@ -25,4 +25,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+}
+
+.mat-simple-snackbar-action button {
+    color: white;
 }

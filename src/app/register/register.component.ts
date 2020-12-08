@@ -4,7 +4,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../shared/auth_and_register/user.service';
 import {first} from 'rxjs/operators';
 import {AuthService} from '../shared/auth_and_register/auth.service';
-import {NotifyService} from '../shared/auth_and_register/notify.service';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +22,6 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private userService: UserService,
     private authService: AuthService,
-    private notifyService: NotifyService
   ) {
     if (this.authService.currentUserValue) {
       this.router.navigate(['/']);
@@ -46,7 +44,6 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.notifyService.clear();
     if (this.registerForm.invalid) {
       return;
     }
@@ -57,8 +54,7 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(['/login']);
         },
         error => {
-        this.notifyService.error(error);
-          this.loading = false;
+        console.log(error);
         });
   }
 

@@ -10,7 +10,7 @@
 </div>
 <div *ngIf="isLoggedIn">
     <mat-toolbar class="navbar">
-        <div class="logo"><img src="assets/images/logo_kicsi.jpg" href="/home" width="172.8" height="42.24"></div>
+        <button (click)="navigate_home()"><img src="assets/images/logo_kicsi.jpg" class="logo-btn" width="172.8" height="42.24"></button>
         <a mat-button (click)="navigate_home()">Home<i class="fas fa-home"></i></a>
         <a mat-button (click)="navigate_movies()">Movies<i class="fas fa-film"></i></a>
         <a mat-button (click)="navigate_mypage()">My Page<i class="fas fa-list-ul"></i></a>

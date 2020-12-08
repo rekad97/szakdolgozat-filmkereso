@@ -22,7 +22,6 @@ export class UserService {
   }
 
   register(user: User) {
-    console.log('proba register 2');
     return this.http.post(`http://localhost:3000/users/register`, user);
   }
 

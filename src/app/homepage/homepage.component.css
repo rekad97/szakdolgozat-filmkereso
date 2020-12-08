@@ -23,7 +23,7 @@
     flex-wrap: wrap;
 }
 
-.host-container {
+:host {
     display: flex;
     flex-direction: column;
     align-items: center;
