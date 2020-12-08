@@ -13,7 +13,7 @@ import { first } from 'rxjs/operators';
 })
 export class AddNewTodoModalComponent implements OnInit {
 
-  @Output() listChanged = new EventEmitter<any>();
+  // @Output() listChanged = new EventEmitter<any>();
   formControls: Record<keyof any, FormControl> = {
     userId: new FormControl(this.authService.currentUserValue.id),
     title: new FormControl('', Validators.required),

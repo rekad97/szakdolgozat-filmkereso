@@ -23,7 +23,7 @@ shared: any;
     console.log(this.result);
 
   }
-$result = new EventEmitter();
+// $result = new EventEmitter();
    async init() {
    await this.movieService.searchMovieByID(this.getMovieId()).toPromise().then((result) => {
     //  console.log(this.getMovieId());

@@ -28,8 +28,8 @@ export class MovieDetailsComponent implements OnInit {
     id: 0,
     movie: {}
   };
-  $result = new EventEmitter();
-  $toWatch = new EventEmitter();
+  // $result = new EventEmitter();
+  // $toWatch = new EventEmitter();
   selectedMovie;
   title;
   constructor(
