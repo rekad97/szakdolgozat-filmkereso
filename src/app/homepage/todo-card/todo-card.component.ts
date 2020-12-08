@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { AuthService } from 'app/shared/auth_and_register/auth.service';
 import { UserService } from 'app/shared/auth_and_register/user.service';
 import { TodoService } from 'app/shared/todo/todo.service';
