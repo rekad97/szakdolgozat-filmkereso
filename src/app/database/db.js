@@ -8,6 +8,6 @@ mongoose.Promise = global.Promise;
 module.exports = {
     User: require('../models/users.js'),
     Movie: require('../models/movie.js'),
-    ToDo: require('../models/todo.js')
+    ToDo: require('../models/todo.js'),
 
 }

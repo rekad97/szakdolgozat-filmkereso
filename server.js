@@ -10,7 +10,9 @@ const config = require('./src/app/config/config.json');
 const passport = require('passport');
 const session = require('express-session');
 var SECRET = "secret"
-
+var mongoose = require('mongoose');
+var database = require('./src/app/database/db-config');
+mongoose.connect(database.remoteUrl, { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
